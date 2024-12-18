@@ -265,7 +265,7 @@ func TestPullRequestsService_CreateComment(t *testing.T) {
 	t.Parallel()
 	client, mux, _ := setup(t)
 
-	input := &PullRequestComment{Body: Ptr("b")}
+	input := &PullRequestComment{Body: Ptr("b"), Path: Ptr("p"), Position: Ptr(1), CommitID: Ptr("c")}
 
 	wantAcceptHeaders := []string{mediaTypeReactionsPreview, mediaTypeMultiLineCommentsPreview}
 	mux.HandleFunc("/repos/o/r/pulls/1/comments", func(w http.ResponseWriter, r *http.Request) {
